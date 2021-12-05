@@ -73,3 +73,5 @@ ADD IMAGE / CSS
 )
 
 2. create folder public > folder css & images
+
+3. app.use(express.urlencoded({ extended: false }));
