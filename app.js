@@ -18,13 +18,13 @@ connection.connect((err) => {
     console.log("success");
 });
 
+app.get("/", (req, res) => {
+res.render("top.ejs");
+});
 app.get("/index", (req, res) => {
     res.render("index.ejs");
 });
-app.get("/top", (req, res) => {
-    res.render("top.ejs");
-});
-app.get("/", (req, res) => {
+app.get("/1", (req, res) => {
     connection.query("SELECT * FROM users", (error, results) => {
         console.log(results);
         res.render("hello.ejs");
