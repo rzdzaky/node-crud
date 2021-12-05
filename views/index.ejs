@@ -13,7 +13,6 @@
         <div class="container">
         <div class="container-header">
             <h1>Daftar Belanjaan</h1>
-            <!-- Tambahkan tautan ke halaman penambahan item -->
             <a href="/new" class="new-button">+ Tambahkan</a>
         </div>
         <div class="index-table-wrapper">
@@ -27,6 +26,13 @@
                 <div class="item-data">
                     <span class="id-column"><%= item.id %></span>
                     <span class="name-column"><%= item.name %></span>
+                </div>
+                <div class="item-menu">
+                    <form action="/delete/<%= item.id %>" method="post">
+                    <input type="submit" value="Hapus">
+                    </form>
+                    <!-- Tambahkan sebuah tautan yang memiliki id dari item yang menuju ke halaman edit  -->
+                    <a href="/edit/<%= item.id %>">Edit</a>
                 </div>
                 </li>
             <% }) %>
