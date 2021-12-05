@@ -1,0 +1,75 @@
+1. npm int --yes
+
+2. npm install express ejs
+
+3. create file app.js => (
+  const express = require('express');
+
+  const app = express();
+
+  app.get('/', (req, res) => {
+    res.render('hello.ejs');
+  });
+
+  app.listen(3000);
+)
+
+4. create folder views => filename.ejs
+
+5. npm install nodemon
+
+6. json scripts => replace test to (
+  "start": ".\\node_modules\\.bin\\nodemon app.js"
+) 
+
+7. npm run start
+
+
+CONNECT TO MYSQL
+
+1. npm install mysql
+
+2. create db in mysql
+
+3. import mysql (
+  const mysql = require("mysql");
+)
+
+4. connect mysql (
+  const connection = mysql.createConnection({
+      host: "localhost",
+      user: "root",
+      password: "",
+      database: "list_app",
+  });
+)
+
+5. pesan eror (
+  connection.connect((err) => {
+      if (err) {
+          console.log("error connecting: " + err.stack);
+          return;
+      }
+      console.log("success");
+  });
+)
+
+6. routing / (
+  app.get("/", (req, res) => {
+      connection.query("SELECT * FROM items", (error, results) => {
+          console.log(results);
+          res.render("hello.ejs");
+      });
+  });
+
+  app.listen(3000);
+)
+
+
+ADD IMAGE / CSS
+
+1. app.js > (
+  app.use(express.static('public'));
+)
+
+2. create folder public > folder css & images
