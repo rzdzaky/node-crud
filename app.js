@@ -21,13 +21,10 @@ connection.connect((err) => {
 app.get("/", (req, res) => {
 res.render("top.ejs");
 });
+
 app.get("/index", (req, res) => {
-    res.render("index.ejs");
-});
-app.get("/1", (req, res) => {
-    connection.query("SELECT * FROM users", (error, results) => {
-        console.log(results);
-        res.render("hello.ejs");
+    connection.query("SELECT * FROM items", (error, results) => {
+        res.render("index.ejs", { items: results });
     });
 });
 
